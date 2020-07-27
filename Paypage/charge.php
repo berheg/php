@@ -1,7 +1,6 @@
 <?php
   require_once('vendor/autoload.php');
-  \Stripe\Stripe::setApiKey('sk_test_51H82LyJb5ScefpUrRd80JPNwIh3ud7pRvX9jvKg8e4Szah8auWfBLw7mwjj3d4hODsRKU8XNbUbcUSAlHIRF4gwK00QHRnT09e
-');
+  \Stripe\Stripe::setApiKey('sk_test_51H82LyJb5ScefpUrRd80JPNwIh3ud7pRvX9jvKg8e4Szah8auWfBLw7mwjj3d4hODsRKU8XNbUbcUSAlHIRF4gwK00QHRnT09e');
 //sanitize Post array
 $POST = filter_var_array($_POST, FILTER_SANITIZE_STRING);
 $first_name = $POST['first_name'];
@@ -20,3 +19,6 @@ $charge = \Stripe\Charge::create(array(
   "description" => "Intro To React Course",
   "customer" => $customer->id
 ));
+//print_r($charge);
+//Redirect to success page
+header('Location: success.php?tid='.$charge->id.'&product='.$charge->description);
