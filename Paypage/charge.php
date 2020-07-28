@@ -1,5 +1,9 @@
 <?php
   require_once('vendor/autoload.php');
+  require_once('config/db.php');
+  require_once('lib/pdo_db.php');
+  require_once('models/Customer.php');
+  require_once('models/Transaction.php');
   \Stripe\Stripe::setApiKey('sk_test_51H82LyJb5ScefpUrRd80JPNwIh3ud7pRvX9jvKg8e4Szah8auWfBLw7mwjj3d4hODsRKU8XNbUbcUSAlHIRF4gwK00QHRnT09e');
 //sanitize Post array
 $POST = filter_var_array($_POST, FILTER_SANITIZE_STRING);
