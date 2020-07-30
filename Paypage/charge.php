@@ -23,6 +23,19 @@ $charge = \Stripe\Charge::create(array(
   "description" => "Intro To React Course",
   "customer" => $customer->id
 ));
+// Customer Data
+$customerData = [
+  'id' => $charge->customer,
+  'first_name' => $first_name,
+  'last_name' => $last_name,
+  'email' => $email
+];
+
+// Instantiate Customer
+$customer = new Customer();
+
+// Add Customer To DB
+$customer->addCustomer($customerData);
 //print_r($charge);
 //Redirect to success page
 header('Location: success.php?tid='.$charge->id.'&product='.$charge->description);
